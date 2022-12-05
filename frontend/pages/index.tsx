@@ -46,6 +46,7 @@ const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
             const response = await fetch(`http://127.0.0.1:8000/api/personel/${id}/`, {
                 method: "DELETE"
             })
+            window.location.reload()
 
     }
     catch (e) {
@@ -78,7 +79,7 @@ return (
                                 name="search"
                                 onChange={onSearch}
                                 value={search}
-                                className=" w-full rounded-none rounded-l-md border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 text-black"
+                                className=" w-full rounded-none rounded-l-md border-gray-300 pl-2 focus:border-indigo-500 focus:ring-indigo-500 text-black"
                                 placeholder="Search"
                             />
                         </div>

@@ -5,8 +5,9 @@ import PersonelForm, {getBase64} from "../components/PersonelForm";
 import axios from "axios";
 
 const PersonelEdit = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => {
-    const onSubmit = async (data: Personel) => {
-        console.log("submit data",data)
+    const onSubmit = async (fData: Personel) => {
+        console.log("submit data",fData)
+        const {image, ...data} = fData
         try {
             const rows = data.rows.map((row) => {
                 return {
@@ -21,11 +22,13 @@ const PersonelEdit = (props:InferGetServerSidePropsType<typeof getServerSideProp
                 rows: rows,
 
             }
-            if (data.image[0]) {
-                console.log("image", data.image)
-                personelData["image"] = await getBase64(data.image[0] as unknown as File) as string
+            console.log("personel data",personelData)
+            if (image[0]) {
+                console.log("image", image)
+                personelData["image"] = await getBase64(image[0] as unknown as File) as string
 
             }
+            personelData["end_date"] = data.end_date ? data.end_date : null
             await axios.patch(
                 `http://127.0.0.1:8000/api/personel/${props.personel.id}/`,
                 personelData
