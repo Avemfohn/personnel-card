@@ -5,6 +5,9 @@ import {PaginatedData} from "../types/generics";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import useDebounce from "../utils/hooks";
+import {useTheme} from "next-themes";
+import {BsFillMoonFill, BsSun} from "react-icons/bs";
+
 const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
 
     const [data, setData] = useState(props.personels)
@@ -54,21 +57,41 @@ const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
         }
     }
 
+    const {systemTheme, theme, setTheme} = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {setMounted(true)}, [])
+
+    const renderTheme = () => {
+
+        if (!mounted) return null;
+
+
+        const currentTheme = theme === 'system' ? systemTheme : theme;
+
+        if (currentTheme === "dark") {
+            return <BsSun className="w-7 h-7" role="button" onClick={() => setTheme('light')}/>
+        } else {
+            return <BsFillMoonFill className="w-7 h-7" role="button" onClick={() => setTheme('dark')}/>
+        }
+    }
 
 return (
     <div>
-    <div className="dark:bg-gray-900 dark:border-gray-400 bg-gray-50 rounded-b-xl border-8 flex flex-wrap justify-between items-center h-32 mx-auto px-4 z-10">
-        <h3 className="text-lg leading-6 font-medium text-white flex"> Personel List</h3>
+    <div className="dark:bg-gray-900 bg-green-200 border-green-300 dark:border-gray-400 rounded-b-xl border-8 flex flex-wrap justify-between items-center h-32 mx-auto px-4 z-10">
+        <h3 className="text-lg leading-6 font-medium text-green dark:text-white flex"> Personel List</h3>
         <div className="mt-2 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
-            <div className="mt-3 sm:mt-0 sm:ml-4">
-                <button onClick={handleOnCreate} type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 dark:bg-gray-400 text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+            <div className="mt-3 sm:mt-0 sm:ml-4 flex justify-between items-center  ">
+                <button onClick={handleOnCreate} type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-black dark:bg-gray-400 text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     Create Personel
                 </button>
-
+            </div>
+            <div className="mt-3 sm:mt-0 sm:ml-4 flex justify-between items-center  ">
+                {renderTheme()}
             </div>
         </div>
     </div>
-        <div className="grid grid-cols-4 gap-4 rounded-tl-lg shadow-sm bg-gray-300">
+        <div className="grid grid-cols-4 gap-4 rounded-tl-lg shadow-sm bg-gray-300 dark:bg-gray-900">
                         <div className="relative flex-grow focus-within:z-10 border-gray-400 pl-4 ">
                             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                             </div>
@@ -79,25 +102,25 @@ return (
                                 name="search"
                                 onChange={onSearch}
                                 value={search}
-                                className=" w-full rounded-none rounded-l-md border-gray-300 pl-2 focus:border-indigo-500 focus:ring-indigo-500 text-black"
+                                className=" w-full rounded-none rounded-l-md border-gray-300 pl-2 focus:border-indigo-500 focus:ring-indigo-500 text-black dark:text-white"
                                 placeholder="Search"
                             />
                         </div>
                 </div>
         <div className="mt-5 md:mt-0 md:col-span-2">
-            <div className="shadow overflow-hidden sm:rounded-md bg-gray-300">
+            <div className="shadow overflow-hidden sm:rounded-md bg-gray-300 dark:bg-gray-900">
                 <ul>
                     {data.results.map((personel) => (
                         <li key={personel.id} className="">
                             <Link href={`/${personel.id}`}>
-                                <a className="block hover:bg-gray-50">
+                                <a className="block hover:bg-gray-50 dark:hover:bg-gray-800">
                                     <div className="px-4 py-4 sm:px-6">
                                         <div className="flex items-center justify-between">
-                                            <p className="text-sm font-medium text-red-600 truncate">
+                                            <p className="text-sm font-medium text-red-600 truncate dark:text-gray-400">
                                                 {personel.name} {personel.surname}
                                             </p>
                                             <div className="ml-2 flex-shrink-0 flex">
-                                                <p className="px-2 inline-flex text-sm leading-5 font-semibold  text-green-800">
+                                                <p className="px-2 inline-flex text-sm leading-5 font-semibold  text-green-800 dark:text-gray-400">
                                                     {personel.email}
                                                 </p>
                                             </div>
@@ -107,7 +130,7 @@ return (
                         type="button"
                         className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs
                         font-medium rounded text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2
-                        focus:ring-offset-2 focus:ring-indigo-500">
+                        focus:ring-offset-2 focus:ring-indigo-500 dark:bg-gray-400">
                         Delete
                     </button>
                                             </div>
@@ -122,11 +145,11 @@ return (
 
         </div>
         <nav
-                className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
+                className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6 dark:bg-gray-900"
                 aria-label="Pagination"
             >
                 <div className="hidden sm:block">
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-gray-700 dark:text-white">
                         Showing <span className="font-medium">{data.offset + 1}</span> to <span className="font-medium">
 
             {data.offset + data.results.length}

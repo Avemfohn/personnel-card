@@ -103,23 +103,23 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
     return (
         <form onSubmit={handleSubmit(props.onSubmit, onError)}>
-            <div className="dark:bg-gray-900 dark:border-gray-400 bg-gray-50 rounded-b-xl border-8 flex flex-wrap justify-between items-center h-32 mx-auto px-4 z-10">
-        <h3 className="text-lg leading-6 font-medium text-white flex"> Personel Information</h3>
+            <div className="dark:bg-gray-900 dark:border-gray-400 bg-green-200 border-green-300 rounded-b-xl border-8 flex flex-wrap justify-between items-center h-32 mx-auto px-4 z-10">
+        <h3 className="text-lg leading-6 font-medium text-black flex dark:text-white"> Personel Information</h3>
         <div className="mt-2 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
             <div className="mt-3 sm:mt-0 sm:ml-4">
                  <button onClick={() => handleClick()} type="button"
-                         className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+                         className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium text-white bg-black dark:bg-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                      <HiOutlineArrowLeftOnRectangle size={35} color="white"/>
                  </button>
             </div>
         </div>
     </div>
             <div className="shadow sm:overflow-hidden sm:rounded-md">
-                <div className="space-y-6 bg-white py-6 px-4 sm:p-6">
+                <div className="space-y-6 bg-white py-6 px-4 sm:p-6 dark:bg-gray-900">
 
                     <div className="grid grid-cols-6 gap-6">
                         <div className="col-span-6 sm:col-span-2">
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Name
                             </label>
                             <input
@@ -136,7 +136,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
 
                         <div className="col-span-6 sm:col-span-2">
-                            <label htmlFor="surname" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="surname" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Surname
                             </label>
                             <input
@@ -154,7 +154,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
                         
                          <div className="col-span-6 sm:col-span-2">
-                            <label htmlFor="image" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="image" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Image
                             </label>
                              <div className="flex items-center">
@@ -175,7 +175,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Email
                             </label>
                             <input
@@ -193,7 +193,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Phone
                             </label>
                             <input
@@ -211,7 +211,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="address" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Address
                             </label>
                             <input
@@ -229,7 +229,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="department" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="department" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Department
                             </label>
                             <input
@@ -247,7 +247,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="position" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="position" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Position
                             </label>
                             <input
@@ -264,7 +264,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="salary" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="salary" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Salary
                             </label>
                             <input
@@ -281,7 +281,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="start_date" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="start_date" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 Start Date
                             </label>
                             <input
@@ -298,7 +298,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="end_date" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="end_date" className="block text-sm font-medium text-gray-700 dark:text-white">
                                 End Date
                             </label>
                             <input
@@ -333,7 +333,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                         })
                     }
                 </div>
-                <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                <div className="dark:bg-gray-800 bg-gray-50 px-4 py-3 text-right sm:px-6">
                     <button
                         disabled={isSubmitting || !isDirty}
                         type="submit"
