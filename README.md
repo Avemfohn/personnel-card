@@ -1,4 +1,4 @@
-# personal-card
+# personnel-card
 A backend project for keeping personnel datas in database.
 
 
