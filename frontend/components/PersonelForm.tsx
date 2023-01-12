@@ -322,11 +322,22 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                     </div>
                 </div>
-                <div>
+                {/*<div className="space-y-2 bg-white py-6 px-4 sm:p-6 dark:bg-gray-900 ">*/}
+                {/*    {*/}
+                {/*        rowsArray.fields.map((item, index) => {*/}
+                {/*            return (*/}
+                {/*                <PersonelRow register={register} index={index} key={item.id} />*/}
+                {/*            )*/}
+
+
+                {/*        })*/}
+                {/*    }*/}
+                {/*</div>*/}
+                 <div className="space-y-2 bg-white py-6 px-4 sm:p-6 dark:bg-gray-900 ">
                     {
                         rowsArray.fields.map((item, index) => {
                             return (
-                                <PersonelRow register={register} index={index} key={item.id}/>
+                                <PersonelRow register={register} index={index} key={item.id} />
                             )
 
 

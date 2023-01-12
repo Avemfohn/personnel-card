@@ -33,7 +33,6 @@ class PersonalEducation(models.Model):
     def __str__(self):
         return f"""{self.school}"""
 
-
 class PersonelRow(models.Model):
     personel = models.ForeignKey(Personel, on_delete=models.CASCADE, related_name='rows')
     """editable foreign key field for personel education"""

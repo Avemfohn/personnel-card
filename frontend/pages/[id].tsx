@@ -30,6 +30,8 @@ const PersonelEdit = (props:InferGetServerSidePropsType<typeof getServerSideProp
             }
             personelData["end_date"] = data.end_date ? data.end_date : null
 
+
+
             await axios.patch(
                 `http://127.0.0.1:8000/api/personel/${props.personel.id}/`,
                 personelData

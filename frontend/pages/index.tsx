@@ -70,19 +70,19 @@ const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
         const currentTheme = theme === 'system' ? systemTheme : theme;
 
         if (currentTheme === "dark") {
-            return <BsSun className="w-7 h-7" role="button" onClick={() => setTheme('light')}/>
+            return <BsSun className="w-7 h-7 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none" role="button" onClick={() => setTheme('light')}/>
         } else {
-            return <BsFillMoonFill className="w-7 h-7" role="button" onClick={() => setTheme('dark')}/>
+            return <BsFillMoonFill className="w-7 h-7 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none" role="button" onClick={() => setTheme('dark')}/>
         }
     }
 
 return (
     <div>
-    <div className="dark:bg-gray-900 bg-green-200 border-green-300 dark:border-gray-400 rounded-b-xl border-8 flex flex-wrap justify-between items-center h-32 mx-auto px-4 z-10">
+    <div className="dark:bg-gray-900 bg-green-200 border-green-300 transition duration-200 dark:border-gray-400 rounded-b-xl border-8 flex flex-wrap justify-between items-center h-32 mx-auto px-4 z-10">
         <h3 className="text-lg leading-6 font-medium text-green dark:text-white flex"> Personel List</h3>
         <div className="mt-2 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
             <div className="mt-3 sm:mt-0 sm:ml-4 flex justify-between items-center  ">
-                <button onClick={handleOnCreate} type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-black dark:bg-gray-400 text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+                <button onClick={handleOnCreate} type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-black transition duration-200 dark:bg-gray-400 text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     Create Personel
                 </button>
             </div>
@@ -91,7 +91,7 @@ return (
             </div>
         </div>
     </div>
-        <div className="grid grid-cols-4 gap-4 rounded-tl-lg shadow-sm bg-gray-300 dark:bg-gray-900">
+        <div className="grid grid-cols-4 gap-4 rounded-tl-lg shadow-sm bg-gray-300 transition duration-200 dark:bg-gray-900">
                         <div className="relative flex-grow focus-within:z-10 border-gray-400 pl-4 ">
                             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                             </div>
@@ -108,7 +108,7 @@ return (
                         </div>
                 </div>
         <div className="mt-5 md:mt-0 md:col-span-2">
-            <div className="shadow overflow-hidden sm:rounded-md bg-gray-300 dark:bg-gray-900">
+            <div className="shadow overflow-hidden sm:rounded-md bg-gray-300 transition duration-200 dark:bg-gray-900">
                 <ul>
                     {data.results.map((personel) => (
                         <li key={personel.id} className="">
@@ -145,7 +145,7 @@ return (
 
         </div>
         <nav
-                className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6 dark:bg-gray-900"
+                className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6 transition duration-200 dark:bg-gray-900"
                 aria-label="Pagination"
             >
                 <div className="hidden sm:block">
