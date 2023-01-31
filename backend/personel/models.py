@@ -28,10 +28,11 @@ class Personel(models.Model):
 
 class PersonalEducation(models.Model):
 
-    school = models.CharField(max_length=30)
+    school = models.CharField(max_length=100)
 
     def __str__(self):
         return f"""{self.school}"""
+    
 
 class PersonelRow(models.Model):
     personel = models.ForeignKey(Personel, on_delete=models.CASCADE, related_name='rows')

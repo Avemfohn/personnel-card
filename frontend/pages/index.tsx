@@ -91,7 +91,7 @@ return (
             </div>
         </div>
     </div>
-        <div className="grid grid-cols-4 gap-4 rounded-tl-lg shadow-sm bg-gray-300 transition duration-200 dark:bg-gray-900">
+        <div className="grid grid-cols-4 gap-4 rounded-tl-lg  shadow-sm bg-gray-300 transition duration-200 dark:bg-gray-900">
                         <div className="relative flex-grow focus-within:z-10 border-gray-400 pl-4 ">
                             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                             </div>

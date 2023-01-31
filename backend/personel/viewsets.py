@@ -34,6 +34,10 @@ class PersonalEducationViewSet(viewsets.ModelViewSet):
     """API endpoint that allows personaleducation to be viewed or edited."""
     queryset = PersonalEducation.objects.all()
     serializer_class = PersonalEducationSerializer
+    pagination_class = None
+
+    def import_data(self, request):
+        file
 
 
 

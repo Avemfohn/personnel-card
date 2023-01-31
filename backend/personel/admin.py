@@ -2,6 +2,7 @@ from django.contrib import admin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from .models import Personel, PersonalEducation, PersonelRow
 from django.utils.html import format_html
+from import_export.admin import ImportExportModelAdmin
 
 class PersonalRowInline(NestedStackedInline):
     model = PersonelRow
@@ -20,6 +21,12 @@ class PersonelAdmin(NestedModelAdmin):
     list_filter = ['name', 'surname', 'email', 'start_date', 'end_date']
     search_fields = ['name', 'surname', 'email', 'start_date', 'end_date']
 
+class PersonelEducationAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    list_display = ('school',)
+    list_filter = ['school']
+    search_fields = ['school']
+
+
 
 admin.site.register(Personel, PersonelAdmin)
-admin.site.register(PersonalEducation)
+admin.site.register(PersonalEducation, PersonelEducationAdmin)

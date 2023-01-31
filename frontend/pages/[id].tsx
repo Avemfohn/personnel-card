@@ -3,33 +3,35 @@ import {Personel} from "../types/Personel";
 import {GetServerSideProps, InferGetServerSidePropsType} from "next";
 import PersonelForm, {getBase64} from "../components/PersonelForm";
 import axios from "axios";
+import {PersonelEducationType} from "../types/PersonelEducationType";
 
-const PersonelEdit = (props:InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const PersonelEdit = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+
     const onSubmit = async (fData: Personel) => {
-        console.log("submit data",fData)
+        console.log("submit data", fData)
         const {image, ...data} = fData
         try {
             const rows = data.rows.map((row) => {
-                return {
-                    ...row,
-                    personel: data.id
+                    return {
+                        ...row,
+                        personel: data.id,
 
+                    }
                 }
-            }
             )
             const personelData = {
                 ...data,
                 rows: rows,
 
+
             }
-            console.log("personel data",personelData)
+            console.log("personel data", personelData)
             if (image[0]) {
                 console.log("image", image)
                 personelData["image"] = await getBase64(image[0] as unknown as File) as string
 
             }
             personelData["end_date"] = data.end_date ? data.end_date : null
-
 
 
             await axios.patch(
@@ -43,7 +45,7 @@ const PersonelEdit = (props:InferGetServerSidePropsType<typeof getServerSideProp
 
     return (
         <div>
-            <PersonelForm personel={props.personel} onSubmit={onSubmit}/>
+            <PersonelForm personel={props.personel} onSubmit={onSubmit} schoolList={props.schoolList}/>
         </div>
     );
 };
@@ -56,13 +58,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     try {
         const response = await fetch(`http://127.0.0.1:8000/api/personel/${id}/`);
         const personel = await response.json() as Personel;
+        const pageUrl = "http://127.0.0.1:8000/api/personaleducation/"
+        const data = await fetch(pageUrl);
+        const schoolList = await data.json() as PersonelEducationType[]
 
         return {
             props: {
-                personel
+                personel,
+                schoolList
             }
         }
-} catch (e) {
+    } catch (e) {
         return {
             notFound: true
         } as const
