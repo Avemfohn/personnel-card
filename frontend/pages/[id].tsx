@@ -1,9 +1,15 @@
 import React from 'react';
-import {Personel} from "../types/Personel";
 import {GetServerSideProps, InferGetServerSidePropsType} from "next";
 import PersonelForm, {getBase64} from "../components/PersonelForm";
 import axios from "axios";
-import {PersonelEducationType} from "../types/PersonelEducationType";
+import {
+    getApiPersonelId,
+    getApiPersonaleducationId,
+    putApiPersonelId,
+    putApiPersonaleducationId,
+    getApiPersonaleducation
+} from "../types/services";
+import {PersonalEducation, Personel} from "../types/types";
 
 const PersonelEdit = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 
@@ -34,10 +40,7 @@ const PersonelEdit = (props: InferGetServerSidePropsType<typeof getServerSidePro
             personelData["end_date"] = data.end_date ? data.end_date : null
 
 
-            await axios.patch(
-                `http://127.0.0.1:8000/api/personel/${props.personel.id}/`,
-                personelData
-            )
+            await putApiPersonelId(props.personel.id, personelData)
         } catch (e) {
             console.log("error", e)
         }
@@ -54,14 +57,11 @@ export default PersonelEdit;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const params = context.params;
-    const id = params.id;
+    const id = params.id as unknown as number
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/personel/${id}/`);
-        const personel = await response.json() as Personel;
-        const pageUrl = "http://127.0.0.1:8000/api/personaleducation/"
-        const data = await fetch(pageUrl);
-        const schoolList = await data.json() as PersonelEducationType[]
 
+        const personel = await getApiPersonelId(id)
+        const schoolList = await getApiPersonaleducation()
         return {
             props: {
                 personel,
@@ -69,6 +69,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             }
         }
     } catch (e) {
+        console.log("error", e  )
         return {
             notFound: true
         } as const

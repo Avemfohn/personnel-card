@@ -1,13 +1,11 @@
 import React from 'react';
 import {UseFormRegister} from "react-hook-form";
-import {Personel} from "../types/Personel";
-import {PersonelEducationType} from "../types/PersonelEducationType";
-import {PaginatedData} from "../types/generics";
-import {GetServerSideProps} from "next";
+import {Personel, PersonalEducation} from "../types/types";
+
 
 
 const PersonelRow = ({register, index, schoolList}: {
-    register: UseFormRegister<Personel>, index: number, schoolList: PersonelEducationType[]
+    register: UseFormRegister<Personel>, index: number, schoolList: PersonalEducation[]
 
 }) => {
 
@@ -29,7 +27,7 @@ const PersonelRow = ({register, index, schoolList}: {
                 <select {...register(`rows.${index}.school`, {
                         required: true
 
-                    })} className="mt-6 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                    })} className=" text-black font-serif mt-6 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                     {schoolList.map(school => (
                     <option key={school.id} value={school.school}  >
                       {school.school}
@@ -46,7 +44,7 @@ const PersonelRow = ({register, index, schoolList}: {
                 <input
                     type="text"
                     {...register(`rows.${index}.school_start_date`, {required: {value: true, message: "School Start Date is required"}})}
-                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 />
             </div>
 
@@ -57,7 +55,7 @@ const PersonelRow = ({register, index, schoolList}: {
                 <input
                     type="text"
                     {...register(`rows.${index}.school_end_date`, {required: {value: true, message: "School End Date is required"}})}
-                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 />
             </div>
             <div className="col-span-12">

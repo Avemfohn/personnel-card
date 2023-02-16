@@ -1,18 +1,15 @@
 import React, {useEffect} from 'react';
 import {useFieldArray, useForm} from "react-hook-form";
-import {Personel} from "../types/Personel";
-import axios from "axios";
 import PersonelRow from "./PersonelRow";
 import {useRouter} from "next/router";
 import Image from "next/image";
 import {HiOutlineArrowLeftOnRectangle} from "react-icons/hi2"
-import {PaginatedData} from "../types/generics";
-import {PersonelEducationType} from "../types/PersonelEducationType";
-import {InferGetServerSidePropsType} from "next";
+import {PersonalEducation, Personel} from "../types/types";
+
 type PersonelFormPropsType = {
     personel?: Personel
     onSubmit: (data: Personel) => void
-    schoolList : PersonelEducationType[]
+    schoolList : PersonalEducation[]
 }
 
 export const getBase64 = async (file:File) => {
@@ -145,7 +142,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                             message: "Name is required"
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm text-black font-serif"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.name?.message}</span>
                             </div>
@@ -164,14 +161,14 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.surname?.message}</span>
                             </div>
 
                             <div className="col-span-6 sm:col-span-2">
                                 <label htmlFor="image"
-                                       className="block text-sm font-medium text-gray-700 dark:text-white">
+                                       className="font-serif block text-sm font-medium dark:text-white">
                                     Image
                                 </label>
                                 <div className="flex items-center">
@@ -187,7 +184,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         })}
                                     //onChange={handleFileChange}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.image?.message}</span>
                             </div>
@@ -206,9 +203,9 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
-                                <span className="text-red-600 font-semibold">{errors.email?.message}</span>
+                                <span className="text-black font-serif text-red-600 font-semibold">{errors.email?.message}</span>
                             </div>
 
                             <div className="col-span-6 sm:col-span-3">
@@ -225,7 +222,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.phone?.message}</span>
                             </div>
@@ -244,7 +241,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.address?.message}</span>
                             </div>
@@ -263,7 +260,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.department?.message}</span>
                             </div>
@@ -281,7 +278,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                             message: "Position is required"
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.position?.message}</span>
                             </div>
@@ -299,7 +296,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                             message: "Salary is required"
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.salary?.message}</span>
                             </div>
@@ -317,7 +314,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                             message: "Start Date is required"
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.start_date?.message}</span>
                             </div>
@@ -331,7 +328,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                     type="date"
                                     defaultValue={null}
                                     {...register("end_date",)}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 />
                             </div>
 

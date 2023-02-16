@@ -7,3 +7,4 @@ django-environ == 0.9.0
 django-nested-inline~=0.4.5
 sqlparse==0.4.3
 Pillow==9.3.0
+drf-spectacular==0.25.1

@@ -3,12 +3,23 @@ from django.core.exceptions import ObjectDoesNotExist
 from drf_writable_nested import WritableNestedModelSerializer
 from rest_framework import serializers
 from drf_extra_fields.fields import Base64ImageField
-from rest_framework.relations import SlugRelatedField
+from drf_spectacular.extensions import OpenApiSerializerFieldExtension
+from drf_spectacular.settings import spectacular_settings
 
 from .models import Personel, PersonalEducation, PersonelRow
 from drf_extra_fields.relations import PresentablePrimaryKeyRelatedField
 
-
+class PresentablePrimaryKeyRelatedFieldSchemaExtension(OpenApiSerializerFieldExtension):
+    target_class = PresentablePrimaryKeyRelatedField
+    def map_serializer_field(self, auto_schema, direction):
+        if direction == "response" and spectacular_settings.COMPONENT_SPLIT_REQUEST:
+            return auto_schema._map_serializer_field(
+                self.target.presentation_serializer, direction, bypass_extensions=True
+            )
+        else:
+            return auto_schema._map_serializer_field(
+                self.target, direction, bypass_extensions=True
+            )
 class CreatableSlugRelatedField(serializers.SlugRelatedField):
     def to_internal_value(self, data):
         try:

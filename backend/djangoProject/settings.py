@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'nested_inline',
     "corsheaders",
     'personel',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +126,8 @@ USE_TZ = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 5
+    'PAGE_SIZE': 5,
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 # Static files (CSS, JavaScript, Images)
@@ -145,3 +147,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Personnel Card API',
+    'DESCRIPTION': 'Personnel Card  API',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    "COMPONENT_SPLIT_REQUEST": True,
+
+    # OTHER SETTINGS
+}
