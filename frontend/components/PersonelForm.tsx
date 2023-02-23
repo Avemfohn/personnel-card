@@ -129,7 +129,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                     <div className="space-y-6 bg-white py-6 px-4 sm:p-6 dark:bg-gray-900">
 
                         <div className="grid grid-cols-6 gap-6">
-                            <div className="col-span-6 sm:col-span-2">
+                            <div className="col-span-6 sm:col-span-2 bg">
                                 <label htmlFor="name"
                                        className="block text-sm font-medium text-gray-700 dark:text-white">
                                     Name

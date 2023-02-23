@@ -6,7 +6,7 @@ import {useRouter} from "next/router";
 import useDebounce from "../utils/hooks";
 import {useTheme} from "next-themes";
 import {BsFillMoonFill, BsSun} from "react-icons/bs";
-import {getApiPersonel} from "../types/services";
+import {deleteApiPersonelId, getApiPersonel} from "../types/services";
 const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
 
     const [data, setData] = useState(props.personels)
@@ -53,9 +53,7 @@ const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
     //delete personel
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/personel/${id}/`, {
-                method: "DELETE"
-            })
+            await deleteApiPersonelId(id)
             window.location.reload()
 
     }
