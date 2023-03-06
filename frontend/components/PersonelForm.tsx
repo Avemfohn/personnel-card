@@ -77,6 +77,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
             reset({keepValues: true})
         }, [isSubmitSuccessful])
 
+
         const rowsArray = useFieldArray({
             control: control,
             name: "rows"
@@ -142,12 +143,13 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                             message: "Name is required"
                                         }
                                     })}
-                                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm text-black font-serif"
+                                    //className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm text-black font-serif"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.name?.message}</span>
                             </div>
 
-                            <div className="col-span-6 sm:col-span-2">
+                            <div className="col-span-6 sm:col-span-2 ">
                                 <label htmlFor="surname"
                                        className="block text-sm font-medium text-gray-700 dark:text-white">
                                     Surname
@@ -161,7 +163,7 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.surname?.message}</span>
                             </div>
@@ -184,7 +186,8 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         })}
                                     //onChange={handleFileChange}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
                                 />
                                 <span className="text-red-600 font-semibold">{errors.image?.message}</span>
                             </div>
@@ -203,7 +206,9 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                                 />
                                 <span className="text-black font-serif text-red-600 font-semibold">{errors.email?.message}</span>
                             </div>
@@ -222,7 +227,9 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                                 />
                                 <span className="text-red-600 font-semibold">{errors.phone?.message}</span>
                             </div>
@@ -241,7 +248,9 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                                 />
                                 <span className="text-red-600 font-semibold">{errors.address?.message}</span>
                             </div>
@@ -260,7 +269,9 @@ const PersonelForm = (props: PersonelFormPropsType) => {
 
                                         }
                                     })}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                                 />
                                 <span className="text-red-600 font-semibold">{errors.department?.message}</span>
                             </div>
@@ -278,7 +289,9 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                             message: "Position is required"
                                         }
                                     })}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                                 />
                                 <span className="text-red-600 font-semibold">{errors.position?.message}</span>
                             </div>
@@ -296,7 +309,9 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                             message: "Salary is required"
                                         }
                                     })}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                                 />
                                 <span className="text-red-600 font-semibold">{errors.salary?.message}</span>
                             </div>
@@ -314,7 +329,9 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                             message: "Start Date is required"
                                         }
                                     })}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                                 />
                                 <span className="text-red-600 font-semibold">{errors.start_date?.message}</span>
                             </div>
@@ -328,7 +345,9 @@ const PersonelForm = (props: PersonelFormPropsType) => {
                                     type="date"
                                     defaultValue={null}
                                     {...register("end_date",)}
-                                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                                 />
                             </div>
 

@@ -25,7 +25,9 @@ const PersonelRow = ({register, index, schoolList}: {
                 <select {...register(`rows.${index}.school`, {
                         required: {value: true, message: "School Name is required"}
 
-                    })} className=" text-black font-serif mt-6 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                    })} //className=" text-black font-serif mt-6 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                    className="mt-6 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400">
+
                     {schoolList.map(school => (
                     <option key={school.id} value={school.school}  >
                       {school.school}
@@ -42,7 +44,9 @@ const PersonelRow = ({register, index, schoolList}: {
                 <input
                     type="text"
                     {...register(`rows.${index}.school_start_date`, {required: {value: true, message: "School Start Date is required"}})}
-                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                 />
             </div>
 
@@ -53,7 +57,9 @@ const PersonelRow = ({register, index, schoolList}: {
                 <input
                     type="text"
                     {...register(`rows.${index}.school_end_date`, {required: {value: true, message: "School End Date is required"}})}
-                    className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    //className="text-black font-serif mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-900 dark:text-gray-200 dark:border-gray-500 dark:focus:border-gray-500 dark:focus:ring-gray-500 dark:placeholder-gray-400"
+
                 />
             </div>
             <div className="col-span-12">

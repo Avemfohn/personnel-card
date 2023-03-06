@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {InferGetServerSidePropsType} from "next";
-import {Personel, PaginatedPersonelList} from "../types/types";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import useDebounce from "../utils/hooks";
 import {useTheme} from "next-themes";
 import {BsFillMoonFill, BsSun} from "react-icons/bs";
 import {deleteApiPersonelId, getApiPersonel} from "../types/services";
+import {useGetApiPersonel} from "../types/hooks";
 const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
 
-    const [data, setData] = useState(props.personels)
      const [search, setSearch] = useState(null)
     const [limit, setLimit] = useState(5)
     const [offset, setOffset] = useState(0)
@@ -28,27 +27,12 @@ const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
     const onHandlePrevPage = () => {
         setOffset(offset - limit)
     }
+    const {data,isLoading,error} = useGetApiPersonel({
+        limit,
+        search: debouncedSearch,
+        offset,
+    })
 
-    const handleChangePage = async () => {
-        const data = await getApiPersonel({
-            limit: limit,
-            search: debouncedSearch,
-            offset
-        })
-        setData(data)
-        }
-
-    useEffect(() => {
-        if ( limit || debouncedSearch!==null) {
-            // const url = pageUrl ? pageUrl : props.pageUrl
-            // const urlParams = new URLSearchParams(url.split("?")[1])
-            // limit && urlParams.set('limit', limit)
-            // debouncedSearch && urlParams.set('search', debouncedSearch)
-            //
-            // const newUrl = props.pageUrl + "?" + urlParams.toString()
-            handleChangePage()
-        }
-    }, [limit, offset,debouncedSearch])
 
     //delete personel
     const handleDelete = async (id) => {
@@ -80,6 +64,8 @@ const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
             return <BsFillMoonFill className="w-7 h-7 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none" role="button" onClick={() => setTheme('dark')}/>
         }
     }
+     if (isLoading) return <div>Loading...</div>
+    if (error) return <div>Error...</div>
 
 return (
     <div>
@@ -189,7 +175,9 @@ return (
                     </button>
                 </div>
             </nav>
+
     </div>
+
 )
 }
 export default Index;
