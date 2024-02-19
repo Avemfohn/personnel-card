@@ -2,10 +2,14 @@ import React from 'react';
 import {UseFormRegister} from "react-hook-form";
 import {Personel, PersonalEducation} from "../types/types";
 
-const PersonelRow = ({register, index, schoolList}: {
-    register: UseFormRegister<Personel>, index: number, schoolList: PersonalEducation[]
+const PersonelRow = ({register, index, schoolList, removeRow}: {
+    register: UseFormRegister<Personel>, index: number, schoolList: PersonalEducation[], removeRow: (index: number) => void;
 
 }) => {
+
+    const handleDelete = () => {
+    removeRow(index);
+  };
 
     return (
 
@@ -62,9 +66,21 @@ const PersonelRow = ({register, index, schoolList}: {
 
                 />
             </div>
+
+            <div className="col-span-6 sm:col-span-3">
+                <button
+                    type="button"
+                    onClick={handleDelete}
+                    className="mt-5 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:bg-gray-800 dark:text-gray-200"
+                >
+                    Delete
+                </button>
+            </div>
+
             <div className="col-span-12">
                 <div className="border-t-2 border-gray-200 dark:border-gray-700"></div>
             </div>
+
 
         </div>
 

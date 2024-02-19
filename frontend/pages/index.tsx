@@ -37,9 +37,14 @@ const Index =(props:InferGetServerSidePropsType<typeof getServerSideProps>)=>{
     //delete personel
     const handleDelete = async (id) => {
         try {
-            await deleteApiPersonelId(id)
-            window.location.reload()
+             if (window.confirm("Are you sure you want to delete this personel?")) {
+                 await deleteApiPersonelId(id)
+                 window.location.reload()
+             }
+             else {
+                 //do nothing
 
+             }
     }
     catch (e) {
             console.log("error", e)
